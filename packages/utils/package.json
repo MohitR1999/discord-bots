@@ -9,10 +9,11 @@
   ],
   "license": "ISC",
   "author": "Mohit Ranjan",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@bots/eslint-config": "*",

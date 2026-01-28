@@ -9,13 +9,14 @@
   ],
   "license": "ISC",
   "author": "mohit",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
     "start": "node dist/main.js",
-    "dev": "nodemon src/main.ts"
+    "dev": "nodemon src/main.ts",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@bots/typescript-config": "*",
