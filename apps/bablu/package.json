@@ -15,7 +15,7 @@
     "test": "jest",
     "build": "tsc",
     "start": "node dist/main.js",
-    "dev": "nodemon src/main.ts",
+    "dev": "tsx watch src/main.ts",
     "lint": "eslint ."
   },
   "devDependencies": {
@@ -30,6 +30,7 @@
     "msw": "^2.12.7",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
