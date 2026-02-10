@@ -14,7 +14,6 @@
     ".": "./src/main.ts"
   },
   "scripts": {
-    "test": "jest",
     "lint": "eslint ."
   },
   "devDependencies": {
