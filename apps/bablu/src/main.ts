@@ -1,7 +1,7 @@
 import type { Event, Context } from "@bots/utils";
 
 const handler = (event: Event, context: Context) => {
-  const x = 2;
+  const x = 4;
   console.log(event);
   console.log(context);
 };
