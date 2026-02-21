@@ -1,22 +1,23 @@
-import handler from "../src/main";
-import type { Event, Context } from "@bots/utils";
+import { handler } from "../src";
+import { APIGatewayEvent, Context } from "aws-lambda";
 
 describe("Basic handler", () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
 
-  it("Should log the event and context", () => {
-    const spyLog = jest.spyOn(console, 'log');
-    const event: Event = {
-      name: "Ping",
-      type: "Command",
-    };
-    const context: Context = {
-      function: "handler",
-    };
-    handler(event, context);
-    expect(spyLog).toHaveBeenNthCalledWith(1, event)
-    expect(spyLog).toHaveBeenNthCalledWith(2, context)
+  it("Should return basic status 200 code", async () => {
+    const event: unknown = {};
+    const context: unknown = {};
+    const returnObject = await handler(
+      event as APIGatewayEvent,
+      context as Context,
+    );
+    expect(returnObject.statusCode).toBe(200);
+    expect(returnObject.body).toBe(
+      JSON.stringify({
+        message: "Hello World",
+      }),
+    );
   });
 });

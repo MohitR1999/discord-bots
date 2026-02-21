@@ -1,6 +1,4 @@
-FROM node:22-alpine AS base
-RUN apk update
-RUN apk add --no-cache libc6-compat
+FROM public.ecr.aws/lambda/nodejs:22 AS base
 # Set working directory
 WORKDIR /app
 # ---
@@ -23,11 +21,8 @@ COPY --from=prepare /app/out/full/ .
 RUN npx turbo run build
 # ---
 FROM base AS runner
-# Don't run production as root for security reasons
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 bablu
-USER bablu
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=bablu:nodejs /app /app
-CMD node /app/apps/bablu/dist/main.js
+WORKDIR ${LAMBDA_TASK_ROOT}
+COPY --from=builder /app .
+CMD ["./apps/bablu/dist/index.handler"]
