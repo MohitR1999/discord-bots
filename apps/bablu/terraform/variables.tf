@@ -9,3 +9,7 @@ variable "vpc_cidr" {
 variable "project_name" {
   default = "bablu-bot"
 }
+
+variable "image_tag" {
+  type = string
+}
