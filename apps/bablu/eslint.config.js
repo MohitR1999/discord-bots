@@ -1,4 +1,5 @@
-import { config } from '@bots/eslint-config/base'
+const pkg = require('@bots/eslint-config/base')
 
-/** @type {import("eslint").Linter.Config} */
-export default config;
+const { config } = pkg
+
+module.exports = config
