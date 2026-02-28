@@ -42,7 +42,7 @@ jobs:
         with:
           path: './apps/bablu/terraform'
           variables: |
-            image_tag=${{ github.sha }}
-            
+            image_tag = "${{ github.sha }}"
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
