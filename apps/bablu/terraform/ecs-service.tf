@@ -20,6 +20,11 @@ resource "aws_ecs_task_definition" "bot" {
         {
           name      = "DISCORD_TOKEN"
           valueFrom = aws_secretsmanager_secret.discord_token.arn
+        },
+
+        {
+          name      = "CLIENT_ID"
+          valueFrom = aws_secretsmanager_secret.app_id.arn
         }
       ]
 

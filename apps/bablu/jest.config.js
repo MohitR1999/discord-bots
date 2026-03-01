@@ -4,5 +4,5 @@ module.exports = {
   testEnvironment: "node",
   clearMocks: true,
   moduleFileExtensions: ["ts", "js"],
-  testMatch: ["**/__tests__/**/*.test.ts"],
+  testMatch: ["**/**/*.test.ts"],
 };
