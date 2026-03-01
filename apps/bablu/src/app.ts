@@ -25,6 +25,6 @@ export const handler = () => {
   if (process.env.DISCORD_TOKEN) {
     client.login(process.env.DISCORD_TOKEN)
   } else {
-    console.log('Discord token not found!')
+    console.log('Discord token not found!!')
   }
 };
