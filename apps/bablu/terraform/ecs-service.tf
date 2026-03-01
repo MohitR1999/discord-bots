@@ -16,6 +16,13 @@ resource "aws_ecs_task_definition" "bot" {
 
       portMappings = []
 
+      secrets = [
+        {
+          name      = "DISCORD_TOKEN"
+          valueFrom = aws_secretsmanager_secret.discord_token.arn
+        }
+      ]
+
       environment = [
         {
           name  = "NODE_ENV"
