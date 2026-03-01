@@ -43,7 +43,8 @@ data "aws_iam_policy_document" "execution_secrets_policy" {
       "secretsmanager:GetSecretValue"
     ]
     resources = [
-      aws_secretsmanager_secret.discord_token.arn
+      aws_secretsmanager_secret.discord_token.arn,
+      aws_secretsmanager_secret.app_id.arn
     ]
   }
 }
