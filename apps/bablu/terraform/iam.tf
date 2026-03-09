@@ -1,6 +1,7 @@
 data "aws_iam_policy_document" "ecs_task_assume" {
   statement {
     actions = ["sts:AssumeRole"]
+    effect  = "Allow"
 
     principals {
       type        = "Service"
