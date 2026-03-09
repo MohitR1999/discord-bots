@@ -68,8 +68,8 @@ data "aws_ami" "ecs" {
 
 resource "aws_launch_template" "ecs" {
   name_prefix   = "ecs-bot"
-  image_id      = data.aws_ami.ecs.id
-  instance_type = "t4g.micro"
+  image_id      = "ami-0f559c3642608c138"
+  instance_type = "t2.micro"
 
   user_data = base64encode(<<EOF
 #!/bin/bash
