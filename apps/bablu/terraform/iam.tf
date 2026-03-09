@@ -33,7 +33,7 @@ resource "aws_iam_role_policy_attachment" "ecs_instance" {
 
 resource "aws_iam_instance_profile" "ecs" {
   name = "ecs-instance-profile"
-  path = "/ecs/instance"
+  path = "/ecs/instance/"
   role = aws_iam_role.ecs_instance_role.name
 }
 
