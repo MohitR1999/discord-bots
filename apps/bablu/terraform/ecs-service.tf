@@ -72,7 +72,6 @@ resource "aws_launch_template" "ecs" {
   name_prefix   = "ecs-bot"
   image_id      = "ami-0f559c3642608c138"
   instance_type = "t2.micro"
-  vpc_security_group_ids = [ aws_security_group.ec2_ecs.id ]
 
   user_data = base64encode(<<EOF
 #!/bin/bash
