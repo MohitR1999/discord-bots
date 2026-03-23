@@ -13,7 +13,7 @@ describe('addBirthday command', () => {
         showModal: jest.fn()
     }
 
-    it('Should render a modal when user runs /addBirthday', async () => {
+    it('Should render a modal when user runs /addbirthday', async () => {
         const handler = new AddBirthdayCommandHandler(mockLogger as unknown as PinoLogger);
         await handler.execute(mockBirthdayInteraction as unknown as CommandInteraction)
         expect(mockBirthdayInteraction.showModal).toHaveBeenCalledWith({
