@@ -1,3 +1,5 @@
 export type { Event } from './types/Event'
 export type { Context } from './types/Context'
 export { PinoLogger } from './logger/PinoLogger'
+export { MONTHS, DAYS, YEARS } from './constants/dates'
+export type { NumericOption } from './types/Option'
