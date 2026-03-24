@@ -1,10 +1,11 @@
 import { config } from 'dotenv'
-import { Client, GatewayIntentBits, Events } from "discord.js";
+import { Client, GatewayIntentBits, Events, ModalSubmitInteraction } from "discord.js";
 import { PingCommandHandler } from "./application/commands/ping/PingCommandHandler";
 import { DiscordCommandAdapter } from "./infrastructure/discord/DiscordCommandAdapter";
 import { PinoLogger as Logger } from '@bots/utils'
 import { AddBirthdayCommandHandler } from './application/commands/addBirthday/AddBirthdayCommandHandler';
-import { COMMANDS } from './constants/commands'
+import { SubmitBirthdayCommandHandler } from './application/commands/birthdaySubmit/SubmitBirthdayCommandHandler'
+import { COMMANDS, BIRTHDAY_MODAL_ID } from './constants/commands'
 config()
 
 const logger = new Logger();
@@ -27,6 +28,12 @@ export const handler = () => {
     }
     else if (interaction.commandName === COMMANDS.ADD_BIRTHDAY) {
       handler = new AddBirthdayCommandHandler(logger);
+    }
+    else if (interaction.isModalSubmit()) {
+      const modalInteraction = interaction as unknown as ModalSubmitInteraction
+      if (modalInteraction.customId === BIRTHDAY_MODAL_ID) {
+        handler = new SubmitBirthdayCommandHandler(logger);
+      }
     }
 
     if (handler) {
