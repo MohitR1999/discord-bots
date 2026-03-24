@@ -4,7 +4,7 @@ import type { NumericOption } from '@bots/utils'
 
 export const prepareOption = (option: NumericOption) => {
     return new StringSelectMenuOptionBuilder()
-                .setLabel(`DAY${option.label}`)
+                .setLabel(option.label)
                 .setValue(`${option.value}`)
 }
 
@@ -17,7 +17,6 @@ export const getBirthdayModal = () => {
             .setPlaceholder('Enter the day (1-31)')
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
-            .setPlaceholder('21')
     
     const dayLabel = new LabelBuilder()
             .setLabel('Please provide your birth date')
@@ -36,10 +35,9 @@ export const getBirthdayModal = () => {
 
     const yearSelector = new TextInputBuilder()
             .setCustomId('year-select')
-            .setPlaceholder('Select the year')
+            .setPlaceholder('Enter your birth year')
             .setRequired(true)
             .setStyle(TextInputStyle.Short)
-            .setPlaceholder('1998')
 
    const yearLabel = new LabelBuilder()
             .setLabel('Please provide your birth year')
