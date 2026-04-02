@@ -4,6 +4,10 @@ on:
     branches:
       - main
       - master
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tf'
 
 permissions:
   id-token: write
@@ -31,7 +35,6 @@ jobs:
   tests:
     name: 'Tests'
     runs-on: ubuntu-latest
-    needs: [lint-check]
     steps:
       - name: 'Checkout the repository'
         uses: actions/checkout@v6
@@ -49,7 +52,7 @@ jobs:
   plan:
     name: 'Terraform plan'
     runs-on: ubuntu-latest
-    needs: [tests]
+    needs: [lint-check, tests]
     env:
       IMAGE_TAG: ${{ github.event.pull_request.head.sha }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

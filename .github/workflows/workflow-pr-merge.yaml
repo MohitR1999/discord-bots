@@ -6,6 +6,12 @@ on:
     branches:
       - main
       - master
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tf'
+      - '!**.test.js'
+      - '!**.test.ts'
 
 permissions:
   id-token: write
